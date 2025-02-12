@@ -18,8 +18,13 @@ func NewVideoHandler(db *sql.DB) *VideoHandler {
 func (h *VideoHandler) ListVideos(c *gin.Context) {
     var filter models.VideoFilter
     if err := c.ShouldBindQuery(&filter); err != nil {
-        c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
-        return
+        // Set default values if not provided
+        if filter.Page == 0 {
+            filter.Page = 1
+        }
+        if filter.PageSize == 0 {
+            filter.PageSize = 12
+        }
     }
 
     query := `SELECT id, title, author, cover_url, video_length, like_count, view_count, created_at 

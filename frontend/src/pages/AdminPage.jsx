@@ -19,7 +19,11 @@ function AdminPage() {
 
   const fetchVideos = async () => {
     try {
-      const response = await axios.get('http://localhost:8080/api/videos')
+      const params = new URLSearchParams({
+        page: 1,
+        page_size: 50
+      })
+      const response = await axios.get(`http://localhost:8080/api/videos?${params}`)
       setVideos(response.data)
     } catch (error) {
       console.error('Error fetching videos:', error)

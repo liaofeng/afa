@@ -7,7 +7,7 @@ function App() {
   const [currentPage, setCurrentPage] = useState('search')
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-background">
       <Navbar currentPage={currentPage} setCurrentPage={setCurrentPage} />
       <main className="container mx-auto px-4 py-8">
         {currentPage === 'search' ? <SearchPage /> : <AdminPage />}

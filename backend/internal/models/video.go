@@ -19,6 +19,6 @@ type VideoFilter struct {
     StartDate  string `form:"start_date"`
     EndDate    string `form:"end_date"`
     SortByLikes bool   `form:"sort_by_likes"`
-    Page       int    `form:"page" binding:"required,min=1"`
-    PageSize   int    `form:"page_size" binding:"required,min=1,max=50"`
+    Page       int    `form:"page" binding:"min=1" default:"1"`
+    PageSize   int    `form:"page_size" binding:"min=1,max=50" default:"12"`
 }
