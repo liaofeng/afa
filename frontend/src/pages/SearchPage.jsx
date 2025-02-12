@@ -32,7 +32,7 @@ function SearchPage() {
         ...filters,
         sort_by_likes: filters.sortByLikes
       })
-      const response = await axios.get(`http://localhost:8080/api/videos?${params}`)
+      const response = await axios.get(`https://user:94d02708eef25742110923ad34c83682@douyin-search-app-tunnel-gipcnwxb.devinapps.com/api/videos?${params}`)
       setVideos(response.data)
       // In a real app, we'd get total pages from backend
       setTotalPages(Math.ceil(response.data.length / filters.pageSize))
