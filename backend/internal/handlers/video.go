@@ -28,8 +28,7 @@ func (h *VideoHandler) ListVideos(c *gin.Context) {
     }
 
     query := `SELECT id, title, author, cover_url, video_length, like_count, view_count, created_at 
-             FROM videos
-              FROM videos WHERE 1=1`
+             FROM videos WHERE 1=1`
     args := []interface{}{}
 
     if filter.Title != "" {
